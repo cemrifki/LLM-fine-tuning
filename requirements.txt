@@ -1,0 +1,42 @@
+# Transformers library
+transformers>=4.30.0
+
+# Dataset handling
+datasets
+
+# Parameter-efficient fine-tuning
+peft
+
+# Distributed training & acceleration
+accelerate
+
+# Safe model storage
+safetensors
+
+# PyTorch: will automatically install CPU or CUDA version if specified in pip install
+torch      # optionally: torch==2.1.0+cu118 for CUDA 11.8
+# torchvision (optional if using CV tasks)
+torchvision
+
+# GaLore optimizer library
+galore-torch
+
+# Evaluation metrics
+sacrebleu
+rouge-score
+
+# Utilities
+tqdm
+numpy
+scikit-learn
+psutil
+click
+
+# Transformers RL library
+trl>=0.5.0
+
+# Hugging Face Hub for model and dataset management
+huggingface-hub>=0.17.4
+
+# Tokenization library
+sentencepiece
