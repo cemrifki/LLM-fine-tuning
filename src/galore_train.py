@@ -39,7 +39,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, TrainingArguments,
 MODEL_ID = "google/gemma-3-1b-it"
 DATA_FILE = "data/processed/train_combined.jsonl"
 OUTPUT_DIR = Path("outputs/gemma_it_galore")
-TRAIN_SAMPLE_SIZE = 250
+TRAIN_SAMPLE_SIZE = 5_000
 MAX_SEQ_LENGTH = 128
 BATCH_SIZE = 2
 LEARNING_RATE = 1e-5
