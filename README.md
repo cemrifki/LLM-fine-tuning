@@ -3,7 +3,6 @@ Fine-tuning LLMs with QLoRA &amp; GaLore, plus evaluation.
 
 ## Overview
 This repo contains scripts to preprocess datasets, finetune Gemma 3.1 IT model using GaLore and QLoRA, and evaluate them with BLEU-4 and ROUGE-L metrics.
-""
 
 ## Setup Instructions
 1. Clone the repository.
