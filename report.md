@@ -73,7 +73,7 @@ The results I obtained from a small-scale dataset are as follows:
 |---------------|--------|---------|
 | Baseline      | 1.63   | 0.15    |
 | QLoRA (8-bit) | 1.68   | 0.16    |
-| GaLore        | 0.75   | 0.11    |
+| GaLore        | 1.75   | 0.19    |
 
 **Observations**
 - Both fine-tuned models outperform baseline significantly  
