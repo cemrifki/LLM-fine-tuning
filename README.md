@@ -19,6 +19,8 @@ echo 'export HF_TOKEN="YOUR_HF_TOKEN_HERE"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
+If local GPU resources are limited, the fine-tuning pipeline can also be run seamlessly on Google Colab, providing free GPU access for experimentation.
+
 ## Usage
 
 Run the main module to execute the full pipeline: preprocessing, training, evaluation, and result summarization:
