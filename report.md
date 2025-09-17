@@ -40,8 +40,6 @@ Input:
 Response:
 {response}
 
-yaml
-Copy code
 - Tokenized (max_length=128, padded)  
 - Labels copied from input_ids  
 
