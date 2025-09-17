@@ -37,7 +37,7 @@ python main.py --mode preprocess
 
 ## Detailed Analysis
 
-A detailed analysis of the findings can be found in the report.md file.
+A detailed analysis of the findings can be found in the `report.md` file.
 
 ## Credits
 
