@@ -35,7 +35,9 @@ If you only want to run the preprocessing or other modules, run the following ex
 python main.py --mode preprocess
 ```
 
-You can find a more detailed analysis in the `report.md` file.
+### Detailed Analysis
+
+A detailed analysis of the findings can be found in the report.md file.
 
 ### Credits
 
