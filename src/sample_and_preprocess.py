@@ -93,6 +93,7 @@ def write_jsonl(records, path):
     with open(path,'w',encoding='utf-8') as f:
         for r in records:
             f.write(json.dumps(r, ensure_ascii=False) + '\n')
+
 def prepare_data(out_dir, seed):
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
