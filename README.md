@@ -35,10 +35,10 @@ If you only want to run the preprocessing or other modules, run the following ex
 python main.py --mode preprocess
 ```
 
-### Detailed Analysis
+## Detailed Analysis
 
 A detailed analysis of the findings can be found in the report.md file.
 
-### Credits
+## Credits
 
 All code was written by Cem Rifki Aydin.
