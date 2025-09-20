@@ -7,6 +7,9 @@ datasets
 # Parameter-efficient fine-tuning
 peft
 
+# 8-bit and 4-bit optimizers and quantization
+bitsandbytes
+
 # Distributed training & acceleration
 accelerate
 
