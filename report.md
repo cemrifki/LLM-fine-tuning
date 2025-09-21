@@ -65,13 +65,13 @@ Response:
 
 ### Evaluation Table
 
-The results I obtained from a small-scale dataset are as follows:
+The results I obtained from a small-scale dataset (2,000 training samples & 250 test data for now due to GPU limitations; I will expand it in the future) are as follows:
 
 | Model         | BLEU-4 | ROUGE-L |
 |---------------|--------|---------|
-| Baseline      | 1.63   | 0.15    |
-| QLoRA (8-bit) | 1.68   | 0.16    |
-| GaLore        | 1.75   | 0.19    |
+| Baseline      | 7.18   | 0.19    |
+| QLoRA (8-bit) | 7.95   | 0.22    |
+| GaLore        | 10.07  | 0.23    |
 
 **Observations**
 - Both fine-tuned models outperform baseline significantly  

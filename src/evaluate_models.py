@@ -34,6 +34,9 @@ Outputs:
     Date: 14/09/2025
 
 """
+
+import re
+
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from datasets import load_dataset
@@ -41,6 +44,28 @@ from pathlib import Path
 from rouge_score import rouge_scorer
 import sacrebleu
 import json
+
+def normalize_text(text, max_sentences=3):
+    """
+    Normalize text:
+    - Strip whitespace
+    - Collapse repeated sentences
+    - Keep only first `max_sentences` unique sentences
+    """
+    text = text.strip()
+    sentences = re.split(r'(?<=[.!?])\s+', text)
+
+    seen = set()
+    cleaned = []
+    for s in sentences:
+        s = s.strip()
+        if s and s not in seen:
+            cleaned.append(s)
+            seen.add(s)
+        if len(cleaned) >= max_sentences:
+            break
+    return ' '.join(cleaned)
+
 
 def main(hf_model, qlora_dir, galore_dir, test_file, out_dir, max_examples=2000):
     """Evaluates multiple models on a test dataset and saves the results."""
@@ -67,13 +92,16 @@ def main(hf_model, qlora_dir, galore_dir, test_file, out_dir, max_examples=2000)
             prompt = record['instruction'] + " " + record['input']
             inputs = tokenizer(prompt, return_tensors="pt").to(device)
             out = model.generate(**inputs, max_new_tokens=128)
-            pred = tokenizer.decode(out[0], skip_special_tokens=True)
-            predictions.append(pred)
-            references.append(record['response'])
 
-        bleu_score = sacrebleu.corpus_bleu(predictions, [references]).score
+            pred = tokenizer.decode(out[0], skip_special_tokens=True)
+            predictions.append(normalize_text(pred))
+            references.append(normalize_text(record["response"]))
+
+
+        bleu_score = sacrebleu.corpus_bleu(predictions, [references], tokenize='intl').score if len(predictions) > 0 else 0.0
         rouge = rouge_scorer.RougeScorer(['rouge1','rougeL'], use_stemmer=True)
-        rouge_scores = [rouge.score(p,r) for p,r in zip(predictions,references)]
+        rouge_scores = [rouge.score(p,r) for p, r in zip(predictions,references)]
+
         avg_rouge1 = sum([x['rouge1'].fmeasure for x in rouge_scores])/len(rouge_scores)
         avg_rougeL = sum([x['rougeL'].fmeasure for x in rouge_scores])/len(rouge_scores)
 
