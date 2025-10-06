@@ -1,3 +1,6 @@
+# PyTorch: will automatically install CPU or CUDA version if specified in pip install
+torch 
+
 # Transformers library
 transformers>=4.30.0
 
@@ -16,11 +19,6 @@ accelerate
 # Safe model storage
 safetensors
 
-# PyTorch: will automatically install CPU or CUDA version if specified in pip install
-torch      # optionally: torch==2.1.0+cu118 for CUDA 11.8
-# torchvision (optional if using CV tasks)
-torchvision
-
 # GaLore optimizer library
 galore-torch
 
@@ -36,10 +34,10 @@ psutil
 click
 
 # Transformers RL library
-trl>=0.5.0
+trl
 
 # Hugging Face Hub for model and dataset management
-huggingface-hub>=0.17.4
+huggingface-hub
 
 # Tokenization library
 sentencepiece
